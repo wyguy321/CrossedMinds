@@ -1,6 +1,7 @@
 package com.example.wordsearch;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,6 +36,12 @@ public class MainActivity extends Activity {
 			
 			public void onClick(View arg0) {
 
+				Intent myIntent = new Intent();
+				myIntent.setClassName(this, )
+				startActivity(myIntent);
+				
+				
+				
 				String answer = mCrystalBall.getAnAnswer();
 
 				mAnswerLabel.setText(answer);
@@ -45,6 +52,7 @@ public class MainActivity extends Activity {
 		});
 
 	}
+	
 
 	private void animateMenu() {
 		
@@ -79,17 +87,25 @@ public class MainActivity extends Activity {
 		AlphaAnimation aboutAnimation = new AlphaAnimation(1, 0);
 
 		aboutAnimation.setDuration(1500);
-
+		aboutAnimation.setFillBefore(true);
+		aboutAnimation.setFillAfter(true);
+		
 		getAboutButton.setAnimation(aboutAnimation);
 
 	}
 
 	private void animateCrystalBall() {
-		ImageView crystallBallImage = (ImageView) findViewById(R.id.imageView1);
-		crystallBallImage.setImageResource(R.drawable.ball_animation);
-		AnimationDrawable mindAnimation = (AnimationDrawable) crystallBallImage
+		
+		ImageView BrainAnimationImage = (ImageView) findViewById(R.id.imageView1);
+		
+		BrainAnimationImage.setImageResource(R.drawable.ball_animation);
+		
+		AnimationDrawable mindAnimation = (AnimationDrawable) BrainAnimationImage
 				.getDrawable();
 		mindAnimation.start();
+		
+		
+
 	}
 
 	@Override
