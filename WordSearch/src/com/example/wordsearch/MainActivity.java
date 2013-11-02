@@ -35,12 +35,25 @@ public class MainActivity extends Activity {
 
 			
 			public void onClick(View arg0) {
-
-				Intent myIntent = new Intent();
-				myIntent.setClassName(this, )
-				startActivity(myIntent);
 				
-				
+				Thread logoTimer = new Thread(){
+				public void run(){
+					try{
+						sleep(5000);
+						Intent gameBoard = new Intent("com.example.wordsearch.BOARD");
+						startActivity(gameBoard);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					finally{
+						finish();
+						
+					}
+				}
+				};
+				logoTimer.start();
 				
 				String answer = mCrystalBall.getAnAnswer();
 
